@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" width="820" height="240"
+     font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace">
+
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window -->
+  <g filter="url(#shadow)">
+    <rect x="4" y="4" width="812" height="232" rx="10" fill="url(#bg)" stroke="#30363d" stroke-width="1"/>
+    <path d="M14,4 h792 a10,10 0 0 1 10,10 v18 h-812 v-18 a10,10 0 0 1 10,-10 z" fill="#21262d"/>
+    <line x1="4" y1="32" x2="816" y2="32" stroke="#30363d" stroke-width="1"/>
+    <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
+    <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+    <circle cx="62" cy="18" r="6" fill="#27c93f"/>
+    <text x="410" y="22" text-anchor="middle" font-size="11" fill="#8b949e">andrei@github  ──  boot</text>
+  </g>
+
+  <!-- Boot log -->
+  <g font-size="13">
+
+    <g opacity="0">
+      <text x="22" y="62" fill="#6e7681">[    0.000000]</text>
+      <text x="130" y="62" fill="#c9d1d9">Booting andrei-os v22.0 (linux 6.x)</text>
+      <text x="800" y="62" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="0.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <g opacity="0">
+      <text x="22" y="84" fill="#6e7681">[    0.001234]</text>
+      <text x="130" y="84" fill="#c9d1d9">Loading systems-programmer module</text>
+      <text x="800" y="84" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="1.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <g opacity="0">
+      <text x="22" y="106" fill="#6e7681">[    0.002891]</text>
+      <text x="130" y="106" fill="#c9d1d9">Mounting /projects/bambus-os</text>
+      <text x="800" y="106" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="2.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <g opacity="0">
+      <text x="22" y="128" fill="#6e7681">[    0.003445]</text>
+      <text x="130" y="128" fill="#c9d1d9">Initializing C, ASM, embedded toolchain</text>
+      <text x="800" y="128" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="3.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <g opacity="0">
+      <text x="22" y="150" fill="#6e7681">[    0.004102]</text>
+      <text x="130" y="150" fill="#c9d1d9">Probing graphics stack (opengl/vulkan)</text>
+      <text x="800" y="150" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="4.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <g opacity="0">
+      <text x="22" y="172" fill="#6e7681">[    0.004999]</text>
+      <text x="130" y="172" fill="#c9d1d9">Curiosity daemon started</text>
+      <text x="800" y="172" text-anchor="end" fill="#3fb950">[  OK  ]</text>
+      <animate attributeName="opacity" from="0" to="1" begin="5.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+    <!-- Final prompt + blinking cursor -->
+    <g opacity="0">
+      <text x="22" y="208" fill="#7ee787">andrei@github</text>
+      <text x="124" y="208" fill="#c9d1d9">:</text>
+      <text x="132" y="208" fill="#58a6ff">~</text>
+      <text x="142" y="208" fill="#c9d1d9">$</text>
+      <rect x="156" y="196" width="8" height="14" fill="#c9d1d9">
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite" begin="6.6s"/>
+      </rect>
+      <animate attributeName="opacity" from="0" to="1" begin="6.4s" dur="0.15s" fill="freeze"/>
+    </g>
+
+  </g>
+</svg>

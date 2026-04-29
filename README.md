@@ -6,7 +6,7 @@
 
 <!-- 1. Boot-log typing animation ────────────────────────────────── -->
 <p align="center">
-  <img alt="boot log" src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=17&duration=2200&pause=900&color=58A6FF&center=true&vCenter=true&multiline=true&width=820&height=140&lines=%5B+0.000000%5D+Booting+andrei-os+v22.0...;%5B+0.001234%5D+Loading+systems-programmer+module...+OK;%5B+0.002891%5D+Mounting+%2Fprojects%2Fbambus-os...+OK;%5B+0.003445%5D+Probing+graphics+stack+%28opengl%2Fvulkan%29...+OK;%5B+0.004102%5D+Curiosity+daemon+started.+Welcome." />
+  <img alt="boot log" src="./boot.svg" />
 </p>
 
 ---
@@ -24,7 +24,7 @@
                   shell........ zsh + nvim
                   editor....... leaf (self-hosted, pure C)
                   projects..... bambus-os · leaf · grep
-                  langs........ C · x86-64 asm · Python · C++ · Js/Tsx · Java · C#
+                  langs........ C · x86-64 asm · Python · C++ · Java
                   focus........ low-level systems · graphics · open to wherever curiosity points
                   next......... OpenGL / Vulkan · aviation displays @ Garmin
                   cpu.......... caffeine @ 4.9GHz
@@ -79,7 +79,7 @@
 <!-- 5. 3D contribution graph (auto-generated nightly) ──────────── -->
 
 <p align="center">
-  <img alt="3D contribution graph" src="./profile-3d-contrib/profile-night-rainbow.svg" />
+  <img alt="3D contribution graph" src="./profile-3d-contrib/profile-night-green.svg" />
 </p>
 
 ---
