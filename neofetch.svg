@@ -25,78 +25,163 @@
     <text x="410" y="22" text-anchor="middle" font-size="11" fill="#8b949e">andrei@github  ──  ~/.config/neofetch</text>
   </g>
 
-  <!-- ASCII logo: tiny editor showing leaf.c (referencing his project) -->
-  <g font-size="13" fill="#7ee787" xml:space="preserve">
-    <text x="30"  y="68" >┌────────────┐</text>
-    <text x="30"  y="90" >│ leaf.c     │</text>
-    <text x="30"  y="112">├────────────┤</text>
-    <text x="30"  y="134">│ 1 #include │</text>
-    <text x="30"  y="156">│ 2 int main │</text>
-    <text x="30"  y="178">│ 3   return │</text>
-    <text x="30"  y="200">│ 4 }        │</text>
-    <text x="30"  y="222">│ ~          │</text>
-    <text x="30"  y="244">│ ~          │</text>
-    <text x="30"  y="266">└────────────┘</text>
+  <!-- ═══ LEFT: ASCII space invaders arcade ═══ -->
+
+  <!-- CRT cabinet -->
+  <rect x="22" y="50" width="138" height="252" rx="4" fill="#000000" stroke="#30363d" stroke-width="1"/>
+  <rect x="26" y="54" width="130" height="244" rx="2" fill="none" stroke="#3fb950" stroke-opacity="0.35"/>
+
+  <!-- HUD -->
+  <g font-size="9" xml:space="preserve">
+    <text x="32"  y="68" fill="#3fb950">SCORE</text>
+    <text x="62"  y="68" fill="#c9d1d9">04102</text>
+    <text x="100" y="68" fill="#3fb950">HI</text>
+    <text x="116" y="68" fill="#d29922">22000</text>
+    <line x1="30" y1="73" x2="152" y2="73" stroke="#3fb950" stroke-opacity="0.4"/>
   </g>
 
-  <!-- Header: andrei@github -->
+  <!-- Alien fleet — wobbles, two-frame leg animation -->
+  <g font-size="11" xml:space="preserve">
+    <animateTransform attributeName="transform" type="translate"
+                      values="0 0; 6 0; 0 0; -6 0; 0 0"
+                      keyTimes="0;0.25;0.5;0.75;1"
+                      dur="2.4s" repeatCount="indefinite"/>
+
+    <g fill="#bc8cff">
+      <g>
+        <text x="36"  y="92">▝▘</text><text x="62" y="92">▝▘</text>
+        <text x="88"  y="92">▝▘</text><text x="114" y="92">▝▘</text>
+        <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+      <g opacity="0">
+        <text x="36"  y="92">▖▗</text><text x="62" y="92">▖▗</text>
+        <text x="88"  y="92">▖▗</text><text x="114" y="92">▖▗</text>
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <g fill="#76e4f7">
+      <g>
+        <text x="34"  y="113">/▆\</text><text x="60" y="113">/▆\</text>
+        <text x="86"  y="113">/▆\</text><text x="112" y="113">/▆\</text>
+        <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+      <g opacity="0">
+        <text x="34"  y="113">\▆/</text><text x="60" y="113">\▆/</text>
+        <text x="86"  y="113">\▆/</text><text x="112" y="113">\▆/</text>
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <g fill="#3fb950">
+      <g>
+        <text x="34"  y="134">/■\</text><text x="60" y="134">/■\</text>
+        <text x="86"  y="134">/■\</text><text x="112" y="134">/■\</text>
+        <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+      <g opacity="0">
+        <text x="34"  y="134">\■/</text><text x="60" y="134">\■/</text>
+        <text x="86"  y="134">\■/</text><text x="112" y="134">\■/</text>
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.5;1;1" dur="0.6s" repeatCount="indefinite"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Defensive bunkers -->
+  <g font-size="11" fill="#d29922" xml:space="preserve">
+    <text x="36"  y="220">▟█▙</text>
+    <text x="64"  y="220">▟█▙</text>
+    <text x="92"  y="220">▟█▙</text>
+    <text x="120" y="220">▟█▙</text>
+  </g>
+
+  <!-- ═══ SHIP + BULLETS — synced as a single rigid body ═══
+       The ship's <animateTransform> translates this whole group.
+       Bullets live INSIDE the group, so they always fire from above
+       wherever the ship currently is.
+       Cycle: 4.8s total. One bullet fires every 1.2s (4 shots/cycle). -->
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0 0; 30 0; 0 0; -30 0; 0 0"
+                      keyTimes="0;0.25;0.5;0.75;1"
+                      dur="4.8s" repeatCount="indefinite"/>
+
+    <!-- Bullet — fires upward from ship nose (x=92), vanishes near top.
+         Repeats 4× per ship-cycle, each one launched from the ship's
+         current position because the parent <g> translates everything. -->
+    <text x="92" font-size="13" fill="#c9d1d9" text-anchor="middle">|
+      <animate attributeName="y"       from="252" to="100" dur="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0"    keyTimes="0;0.05;0.85;1" dur="1.2s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- Ship -->
+    <text x="92" y="262" font-size="14" fill="#3fb950" text-anchor="middle">▂▟█▙▂</text>
+  </g>
+
+  <!-- Ground line + INSERT COIN -->
+  <line x1="30" y1="270" x2="152" y2="270" stroke="#3fb950" stroke-opacity="0.5"/>
+  <text x="91" y="288" font-size="9" fill="#3fb950" text-anchor="middle" letter-spacing="2">INSERT COIN
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.4s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ═══ RIGHT: identity ═══ -->
+
   <g font-size="14" xml:space="preserve">
-    <text x="180" y="68">
+    <text x="200" y="68">
       <tspan fill="#7ee787" font-weight="bold">andrei</tspan><tspan fill="#c9d1d9">@</tspan><tspan fill="#79c0ff" font-weight="bold">github</tspan>
     </text>
-    <text x="180" y="84" fill="#30363d">─────────────────────────────────────────────────</text>
+    <text x="200" y="84" fill="#30363d">─────────────────────────────────────────────────</text>
   </g>
 
-  <!-- Info lines -->
   <g font-size="13" xml:space="preserve">
-    <text x="180" y="108">
-      <tspan fill="#79c0ff" font-weight="bold">os</tspan><tspan fill="#6e7681">........... </tspan><tspan fill="#c9d1d9">AndreiOS v21.0 (rolling release)</tspan>
+    <text x="200" y="108">
+      <tspan fill="#79c0ff" font-weight="bold">os</tspan><tspan fill="#6e7681">........... </tspan><tspan fill="#c9d1d9">AndreiOS v22.0 (rolling release)</tspan>
     </text>
-    <text x="180" y="130">
+    <text x="200" y="130">
       <tspan fill="#79c0ff" font-weight="bold">host</tspan><tspan fill="#6e7681">......... </tspan><tspan fill="#c9d1d9">babes-bolyai.cluj</tspan>
     </text>
-    <text x="180" y="152">
+    <text x="200" y="152">
       <tspan fill="#79c0ff" font-weight="bold">kernel</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">linux 6.x</tspan>
     </text>
-    <text x="180" y="174">
+    <text x="200" y="174">
       <tspan fill="#79c0ff" font-weight="bold">uptime</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">coding since 2018</tspan>
     </text>
-    <text x="180" y="196">
+    <text x="200" y="196">
       <tspan fill="#79c0ff" font-weight="bold">shell</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">zsh + nvim</tspan>
     </text>
-    <text x="180" y="218">
+    <text x="200" y="218">
       <tspan fill="#79c0ff" font-weight="bold">editor</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">leaf (self-hosted, pure C)</tspan>
     </text>
-    <text x="180" y="240">
+    <text x="200" y="240">
       <tspan fill="#79c0ff" font-weight="bold">projects</tspan><tspan fill="#6e7681">..... </tspan><tspan fill="#c9d1d9">bambus-os · leaf · grep</tspan>
     </text>
-    <text x="180" y="262">
+    <text x="200" y="262">
       <tspan fill="#79c0ff" font-weight="bold">langs</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">C · x86-64 asm · Python · C++ · Java</tspan>
     </text>
-    <text x="180" y="284">
+    <text x="200" y="284">
       <tspan fill="#79c0ff" font-weight="bold">focus</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">low-level systems · graphics · open to wherever curiosity points</tspan>
     </text>
-    <text x="180" y="306">
+    <text x="200" y="306">
       <tspan fill="#79c0ff" font-weight="bold">next</tspan><tspan fill="#6e7681">......... </tspan><tspan fill="#c9d1d9">OpenGL / Vulkan · aviation displays @ Garmin</tspan>
     </text>
-    <text x="180" y="328">
+    <text x="200" y="328">
       <tspan fill="#79c0ff" font-weight="bold">cpu</tspan><tspan fill="#6e7681">.......... </tspan><tspan fill="#c9d1d9">caffeine @ 4.9GHz</tspan>
     </text>
-    <text x="180" y="350">
+    <text x="200" y="350">
       <tspan fill="#79c0ff" font-weight="bold">gpu</tspan><tspan fill="#6e7681">.......... </tspan><tspan fill="#c9d1d9">integrated curiosity</tspan>
     </text>
   </g>
 
-  <!-- Color palette (the iconic neofetch closer) -->
+  <!-- Color palette row -->
   <g>
-    <rect x="180" y="378" width="28" height="20" fill="#484f58"/>
-    <rect x="212" y="378" width="28" height="20" fill="#f85149"/>
-    <rect x="244" y="378" width="28" height="20" fill="#3fb950"/>
-    <rect x="276" y="378" width="28" height="20" fill="#d29922"/>
-    <rect x="308" y="378" width="28" height="20" fill="#58a6ff"/>
-    <rect x="340" y="378" width="28" height="20" fill="#bc8cff"/>
-    <rect x="372" y="378" width="28" height="20" fill="#76e4f7"/>
-    <rect x="404" y="378" width="28" height="20" fill="#c9d1d9"/>
+    <rect x="200" y="378" width="28" height="20" fill="#484f58"/>
+    <rect x="232" y="378" width="28" height="20" fill="#f85149"/>
+    <rect x="264" y="378" width="28" height="20" fill="#3fb950"/>
+    <rect x="296" y="378" width="28" height="20" fill="#d29922"/>
+    <rect x="328" y="378" width="28" height="20" fill="#58a6ff"/>
+    <rect x="360" y="378" width="28" height="20" fill="#bc8cff"/>
+    <rect x="392" y="378" width="28" height="20" fill="#76e4f7"/>
+    <rect x="424" y="378" width="28" height="20" fill="#c9d1d9"/>
   </g>
 
 </svg>
