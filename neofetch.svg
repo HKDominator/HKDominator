@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420"
+     font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace">
+
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window chrome -->
+  <g filter="url(#shadow)">
+    <rect x="4" y="4" width="812" height="412" rx="10" fill="url(#bg)" stroke="#30363d" stroke-width="1"/>
+    <path d="M14,4 h792 a10,10 0 0 1 10,10 v18 h-812 v-18 a10,10 0 0 1 10,-10 z" fill="#21262d"/>
+    <line x1="4" y1="32" x2="816" y2="32" stroke="#30363d" stroke-width="1"/>
+    <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
+    <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+    <circle cx="62" cy="18" r="6" fill="#27c93f"/>
+    <text x="410" y="22" text-anchor="middle" font-size="11" fill="#8b949e">andrei@github  ──  ~/.config/neofetch</text>
+  </g>
+
+  <!-- ASCII logo: tiny editor showing leaf.c (referencing his project) -->
+  <g font-size="13" fill="#7ee787" xml:space="preserve">
+    <text x="30"  y="68" >┌────────────┐</text>
+    <text x="30"  y="90" >│ leaf.c     │</text>
+    <text x="30"  y="112">├────────────┤</text>
+    <text x="30"  y="134">│ 1 #include │</text>
+    <text x="30"  y="156">│ 2 int main │</text>
+    <text x="30"  y="178">│ 3   return │</text>
+    <text x="30"  y="200">│ 4 }        │</text>
+    <text x="30"  y="222">│ ~          │</text>
+    <text x="30"  y="244">│ ~          │</text>
+    <text x="30"  y="266">└────────────┘</text>
+  </g>
+
+  <!-- Header: andrei@github -->
+  <g font-size="14" xml:space="preserve">
+    <text x="180" y="68">
+      <tspan fill="#7ee787" font-weight="bold">andrei</tspan><tspan fill="#c9d1d9">@</tspan><tspan fill="#79c0ff" font-weight="bold">github</tspan>
+    </text>
+    <text x="180" y="84" fill="#30363d">─────────────────────────────────────────────────</text>
+  </g>
+
+  <!-- Info lines -->
+  <g font-size="13" xml:space="preserve">
+    <text x="180" y="108">
+      <tspan fill="#79c0ff" font-weight="bold">os</tspan><tspan fill="#6e7681">........... </tspan><tspan fill="#c9d1d9">AndreiOS v21.0 (rolling release)</tspan>
+    </text>
+    <text x="180" y="130">
+      <tspan fill="#79c0ff" font-weight="bold">host</tspan><tspan fill="#6e7681">......... </tspan><tspan fill="#c9d1d9">babes-bolyai.cluj</tspan>
+    </text>
+    <text x="180" y="152">
+      <tspan fill="#79c0ff" font-weight="bold">kernel</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">linux 6.x</tspan>
+    </text>
+    <text x="180" y="174">
+      <tspan fill="#79c0ff" font-weight="bold">uptime</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">coding since 2018</tspan>
+    </text>
+    <text x="180" y="196">
+      <tspan fill="#79c0ff" font-weight="bold">shell</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">zsh + nvim</tspan>
+    </text>
+    <text x="180" y="218">
+      <tspan fill="#79c0ff" font-weight="bold">editor</tspan><tspan fill="#6e7681">....... </tspan><tspan fill="#c9d1d9">leaf (self-hosted, pure C)</tspan>
+    </text>
+    <text x="180" y="240">
+      <tspan fill="#79c0ff" font-weight="bold">projects</tspan><tspan fill="#6e7681">..... </tspan><tspan fill="#c9d1d9">bambus-os · leaf · grep</tspan>
+    </text>
+    <text x="180" y="262">
+      <tspan fill="#79c0ff" font-weight="bold">langs</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">C · x86-64 asm · Python · C++ · Java</tspan>
+    </text>
+    <text x="180" y="284">
+      <tspan fill="#79c0ff" font-weight="bold">focus</tspan><tspan fill="#6e7681">........ </tspan><tspan fill="#c9d1d9">low-level systems · graphics · open to wherever curiosity points</tspan>
+    </text>
+    <text x="180" y="306">
+      <tspan fill="#79c0ff" font-weight="bold">next</tspan><tspan fill="#6e7681">......... </tspan><tspan fill="#c9d1d9">OpenGL / Vulkan · aviation displays @ Garmin</tspan>
+    </text>
+    <text x="180" y="328">
+      <tspan fill="#79c0ff" font-weight="bold">cpu</tspan><tspan fill="#6e7681">.......... </tspan><tspan fill="#c9d1d9">caffeine @ 4.9GHz</tspan>
+    </text>
+    <text x="180" y="350">
+      <tspan fill="#79c0ff" font-weight="bold">gpu</tspan><tspan fill="#6e7681">.......... </tspan><tspan fill="#c9d1d9">integrated curiosity</tspan>
+    </text>
+  </g>
+
+  <!-- Color palette (the iconic neofetch closer) -->
+  <g>
+    <rect x="180" y="378" width="28" height="20" fill="#484f58"/>
+    <rect x="212" y="378" width="28" height="20" fill="#f85149"/>
+    <rect x="244" y="378" width="28" height="20" fill="#3fb950"/>
+    <rect x="276" y="378" width="28" height="20" fill="#d29922"/>
+    <rect x="308" y="378" width="28" height="20" fill="#58a6ff"/>
+    <rect x="340" y="378" width="28" height="20" fill="#bc8cff"/>
+    <rect x="372" y="378" width="28" height="20" fill="#76e4f7"/>
+    <rect x="404" y="378" width="28" height="20" fill="#c9d1d9"/>
+  </g>
+
+</svg>
