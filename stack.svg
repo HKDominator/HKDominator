@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" width="820" height="360"
+     font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace">
+
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window chrome -->
+  <g filter="url(#shadow)">
+    <rect x="4" y="4" width="812" height="352" rx="10" fill="url(#bg)" stroke="#30363d" stroke-width="1"/>
+    <path d="M14,4 h792 a10,10 0 0 1 10,10 v18 h-812 v-18 a10,10 0 0 1 10,-10 z" fill="#21262d"/>
+    <line x1="4" y1="32" x2="816" y2="32" stroke="#30363d" stroke-width="1"/>
+    <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
+    <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+    <circle cx="62" cy="18" r="6" fill="#27c93f"/>
+    <text x="410" y="22" text-anchor="middle" font-size="11" fill="#8b949e">andrei@github  ──  /etc/stack</text>
+  </g>
+
+  <!-- Command -->
+  <g font-size="13" xml:space="preserve">
+    <text x="22" y="62">
+      <tspan fill="#7ee787" font-weight="bold">andrei@github</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$ cat /etc/stack</tspan>
+    </text>
+  </g>
+
+  <!-- Languages section -->
+  <g font-size="13">
+    <text x="40" y="98" fill="#6e7681">[</text>
+    <text x="50" y="98" fill="#7ee787" font-weight="bold">languages</text>
+    <text x="124" y="98" fill="#6e7681">]</text>
+
+    <circle cx="64"  cy="121" r="4" fill="#58a6ff"/>
+    <text   x="76"  y="125" fill="#c9d1d9">C</text>
+    <circle cx="220" cy="121" r="4" fill="#d29922"/>
+    <text   x="232" y="125" fill="#c9d1d9">x86-64 asm</text>
+    <circle cx="400" cy="121" r="4" fill="#3fb950"/>
+    <text   x="412" y="125" fill="#c9d1d9">Python</text>
+    <circle cx="540" cy="121" r="4" fill="#76e4f7"/>
+    <text   x="552" y="125" fill="#c9d1d9">C++</text>
+    <circle cx="640" cy="121" r="4" fill="#f78166"/>
+    <text   x="652" y="125" fill="#c9d1d9">Java</text>
+
+    <!-- Graphics section -->
+    <text x="40" y="161" fill="#6e7681">[</text>
+    <text x="50" y="161" fill="#7ee787" font-weight="bold">graphics</text>
+    <text x="118" y="161" fill="#6e7681">]</text>
+
+    <circle cx="64"  cy="184" r="4" fill="#5586a4"/>
+    <text   x="76"  y="188" fill="#c9d1d9">OpenGL</text>
+    <circle cx="220" cy="184" r="4" fill="#f85149"/>
+    <text   x="232" y="188" fill="#c9d1d9">Vulkan</text>
+
+    <!-- Tools section -->
+    <text x="40" y="224" fill="#6e7681">[</text>
+    <text x="50" y="224" fill="#7ee787" font-weight="bold">tools</text>
+    <text x="92" y="224" fill="#6e7681">]</text>
+
+    <circle cx="64"  cy="247" r="4" fill="#d29922"/>
+    <text   x="76"  y="251" fill="#c9d1d9">Linux</text>
+    <circle cx="220" cy="247" r="4" fill="#bc8cff"/>
+    <text   x="232" y="251" fill="#c9d1d9">GDB</text>
+    <circle cx="400" cy="247" r="4" fill="#f78166"/>
+    <text   x="412" y="251" fill="#c9d1d9">QEMU</text>
+    <circle cx="540" cy="247" r="4" fill="#f85149"/>
+    <text   x="552" y="251" fill="#c9d1d9">Git</text>
+    <circle cx="640" cy="247" r="4" fill="#c9d1d9"/>
+    <text   x="652" y="251" fill="#c9d1d9">make</text>
+
+    <!-- Mindset / curiosity section -->
+    <text x="40" y="287" fill="#6e7681">[</text>
+    <text x="50" y="287" fill="#7ee787" font-weight="bold">curiosity</text>
+    <text x="124" y="287" fill="#6e7681">]</text>
+
+    <circle cx="64"  cy="310" r="4" fill="#7ee787"/>
+    <text   x="76"  y="314" fill="#c9d1d9">whatever&apos;s interesting and hard</text>
+  </g>
+
+  <!-- Final prompt + cursor -->
+  <g font-size="13" xml:space="preserve">
+    <text x="22" y="338">
+      <tspan fill="#7ee787" font-weight="bold">andrei@github</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$ </tspan>
+    </text>
+    <rect x="148" y="326" width="8" height="14" fill="#c9d1d9">
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+</svg>
